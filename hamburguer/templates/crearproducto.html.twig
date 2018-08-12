@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+{% block title %}Producto | Nuevo{% endblock %}
+{% block stylesheets %}
+    <style>
+        .offset-sm-2{display: flex; justify-content: center; align-items: center;}
+        .form-control{  font-family: Ebrima; font-size: 20px; color: gray; opacity: 0.8;}
+        .col-form-label{ font-family: Ebrima; font-size: 20px; color: #6E6E6E; font-weight: bold;}
+    </style>
+{% endblock %}
+{% block body %}
+    <form  id="form1" method="post" action="{{ action }}" novalidate="novalidate">
+        <!-- form is based on User Entity -->
+        <!--{{ dump(form.vars.value) }} Para mostrar los datos de ese formulario. -->
+        <!-- http://stackoverflow.com/questions/12497133/directly-access-a-form-fields-value-when-overriding-widget-in-a-twig-template -->
+        <div class="col-form-label">{{ form_errors(form.nombre) }} {{ form_label(form.nombre) }}: {{ form_widget(form.nombre, { 'attr': {'class': 'form-control'} }) }}</div>
+        <br>
+        <div class="col-form-label">{{ form_label(form.precio) }}: {{ form_widget(form.precio, { 'attr': {'class': 'form-control'} }) }}</div>
+        <br>
+        <div class="col-form-label">{{ form_label(form.tipo) }}: {{ form_widget(form.tipo, { 'attr': {'class': 'form-control'} }) }}</div>
+        <br>
+        <div class="col-form-label">{{ form_label(form.descripcion) }}: {{ form_widget(form.descripcion, { 'attr': {'class': 'form-control'} }) }}</div>
+        <br>
+        <div class="col-form-label">{{ form_widget(form.save, { 'attr': {'class': 'btn btn-dark btn-lg btn-block'} }) }}</div>&nbsp; &nbsp; <a href="{{ path('app_producto') }}" role="button" class="btn btn-success btn-lg btn-block">VOLVER</a>
+        <br>
+        <br>
+
+    </form>
+{% endblock %}

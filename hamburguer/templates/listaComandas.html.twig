@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+{% block refresh %}
+    <meta http-equiv="refresh" content="5" >
+{% endblock %}
+{% block title %}Cocina | Lista Pedidos{% endblock %}
+{% block stylesheets %}
+    <style>
+        .thead{background-color: #CCCCCC; font-family: Ebrima;}
+        h2{text-align: center; font-family: Ebrima; font-weight: bold; color: #313131;}
+        body{background-color:whitesmoke; font-family: Ebrima;}
+        #a{background-color: #ffa500; border: #ffa500; font-weight: bold; color: #313131;}
+        td{font-family: Ebrima; font-size: 0.9em;}
+    </style>
+{% endblock %}
+    {% block body %}
+        <h2>LISTA DE PEDIDOS</h2><br>
+        <div class="table-responsive">
+        <table class="table table-hover">
+            <thead class="thead">
+            <tr>
+                <th scope="col">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mesa&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                <th scope="col">Camarero&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                <th scope="col">Pedidos</th>
+                <th scope="col">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Estado</th>
+                <th scope="col">            </th>
+            </tr>
+            </thead>
+            <tbody>
+        {% for comanda in comandas %}
+            <tr>
+                <th scope="row">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ comanda.mesa.numero }}</th>
+                <td>{{ comanda.camarero }}</td>
+                <td>{% for com in comanda.productos %}
+                        {% if com.nombre != "Nada" %}
+                        · {{com}}
+                        {% endif %}
+                    {% endfor %}</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ comanda.estado }}</td>
+                <td><a href="{{ path('app_cambia_estado', {'id':comanda.id}) }}" class="btn btn-success btn-onblock" id="a" role="button" aria-pressed="true">LISTO</a></td>
+            </tr>
+        {% endfor %}
+            </tbody>
+        </table>
+        </div>
+
+
+
+        <br><br>
+        <a href="{{ path('app_cocina') }}" class="btn btn-success  btn-lg btn-block" role="button" aria-pressed="true" name="volver">VOLVER</a>
+
+    {% endblock %}

@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+{% block title %}Mesas{% endblock %}
+{% block stylesheets %}
+<style>
+    body{}
+    a{color: #ffa500; font-family: Ebrima}
+    .row a{color: #ffa500; font-family: Ebrima;display: flex; justify-content: center;}
+    h4{font-family: Ebrima;}
+    h3{display: flex; justify-content: center; color: #313131; font-family: "Minion Pro Cond" ; font-weight: bold;}
+    hr{color: #ffa500; }
+    #aa{float: right;}
+</style>
+{% endblock %}
+{% block body %}
+    <div class="pos-f-t">
+        <div class="collapse" id="navbarToggleExternalContent">
+            <div class="bg-dark p-4">
+                <h4 class="text-white">OPCIONES</h4>
+                <span class="text-muted"><a href="{{ path('app_listar_comandaC') }}" aria-pressed="">Lista</a></span>&nbsp;&nbsp;&nbsp;
+                <span class="text-muted"><a href="{{ path('app_camarero') }}" aria-pressed="">Volver</a></span>
+                <span class="text-muted"><a href="{{ path('app_inicio') }}" aria-pressed="" id="aa">Salir</a></span>
+            </div>
+        </div>
+        <nav class="navbar navbar-dark bg-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </nav>
+    </div>
+
+    <div>
+
+        <div class="row">
+            <div class="col-xs-6 col-md-3">
+                <a href="{{ path('app_form_comanda', {'numeromesa': 1})}}" class="thumbnail">
+                    <div id="a"></div><img src="/images/mesa1.png" alt=""></a>
+                </a>
+
+                <hr>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-6 col-md-3">
+                <a href="{{ path('app_form_comanda', {'numeromesa': 2})}}" class="thumbnail">
+                    <img src="/images/mesa2.png" alt="">
+                </a>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-6 col-md-3">
+                <a href="{{ path('app_form_comanda', {'numeromesa': 3})}}" class="thumbnail">
+                    <img src="/images/mesa3.png">
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-xs-6 col-md-3">
+                <a href="{{ path('app_form_comanda', {'numeromesa': 4})}}" class="thumbnail">
+                    <img src="/images/mesa4.png" alt="">
+                </a>
+
+            </div>
+            ...
+        </div>
+
+    </div>
+    </div>
+
+{% endblock %}

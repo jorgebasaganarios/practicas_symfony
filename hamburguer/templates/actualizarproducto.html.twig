@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+    {% block title %}Producto | Actualizar{% endblock %}
+    {% block stylesheets %}
+        <style>
+            .col-form-label{ font-family: Ebrima; font-size: 20px; color: #6E6E6E; font-weight: bold;}
+            .form-control{font-size: 20px; color: gray; opacity: 0.8; font-family: Ebrima;}
+        </style>
+
+    {% endblock %}
+{% block body %}
+    <form id="form1" method="post" action="{{ path('app_actualizar', {'id': producto.id}) }}" novalidate="novalidate">
+        <ul>
+            {% for error in form.vars.errors %}
+                <li>{{ error.message }}</li>
+            {% endfor %}
+        </ul>
+        <div class="col-form-label">{{ form_errors(form.nombre) }} {{ form_label(form.nombre) }}: {{ form_widget(form.nombre, { 'attr': {'class': 'form-control'} }) }}</div>
+        <br>
+        <div class="col-form-label">{{ form_label(form.precio) }}: {{ form_widget(form.precio, { 'attr': {'class': 'form-control'} }) }}</div>
+        <br>
+        <div class="col-form-label">{{ form_label(form.tipo) }}: {{ form_widget(form.tipo, { 'attr': {'class': 'form-control'} }) }}</div>
+        <br>
+        <div class="col-form-label">{{ form_label(form.descripcion) }}: {{ form_widget(form.descripcion, { 'attr': {'class': 'form-control'} }) }}</div>
+        <br>
+        <div class="col-form-label">{{ form_widget(form.save, { 'attr': {'class': 'btn btn-dark btn-lg btn-block'} }) }}</div>
+        <div class="col-form-label"><a href="{{ path('app_producto_listar') }}" role="button" class="btn btn-success btn-lg btn-block">VOLVER</a></div>
+        {{ form_rest(form) }} <!-- prints hidden fields and others -->
+    </form>
+{% endblock %}

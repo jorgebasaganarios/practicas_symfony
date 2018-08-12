@@ -1,0 +1,22 @@
+{%  extends 'base.html.twig' %}
+
+{% block title %}Result{%  endblock %}
+
+{% block body %}
+
+    <!--
+     Formulario para búsquedas que recibe los parámetros del objeto por separado.
+     -->
+
+    <form id="updateform" action="{{ path(action) }}" method="post">
+        Escribe el id del registro a modificar:<br><br>
+        <input type="text" name="id" value="{{ id }}"/><br><br>
+
+        Escribe el campo a modificar:<br><br>
+        Nombre: <input type="text" name="author" value="{{ author }}"/><br><br>
+        Precio: <input type="text" name="title" value="{{ title }}"/><br><br>
+        Descripción: <input type="text" name="content" value="{{ content }}"/><br><br>
+        <input type="submit" value="Actualizar" />
+    </form>
+
+{% endblock %}

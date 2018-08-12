@@ -1,0 +1,22 @@
+{%  extends 'base.html.twig' %}
+
+{% block title %}Result{%  endblock %}
+
+{% block body %}
+
+    <!--
+     Formulario para actualización que recibe el objeto completo.
+     -->
+
+    <form id="updateform" action="{{ path(action) }}" method="post">
+        Escribe el id del registro a modificar:<br><br>
+        <input type="text" name="id" value="{{ product1.id }}"/><br><br>
+
+        Escribe el campo a modificar:<br><br>
+        Nombre: <input type="text" name="nombre" value="{{ product1.name }}"/><br><br>
+        Precio: <input type="text" name="precio" value="{{ product1.price }}"/><br><br>
+        Descripción: <input type="text" name="desc" value="{{ product1.description }}"/><br><br>
+        <input type="submit" value="Actualizar" />
+    </form>
+
+{% endblock %}

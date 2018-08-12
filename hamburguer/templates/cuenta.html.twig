@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+    {% block title %}Cuenta{% endblock %}
+    {% block stylesheets %}
+        <style>
+
+            #c{background-color: limegreen;}
+            #b{font-weight: bold; color: #313131;}
+            #a{background-color: red; color: white; padding-left: 2em;}
+            a{color: #ffa500; font-family: Ebrima;}
+            h2{color: #ffa500; font-weight: bold; display: flex; justify-content: center; font-family: Ebrima;}
+           .badge{background-color: #313131; font-family: Ebrima; }
+            #d{border-top: #313131 solid 2px; font-weight: bold; color: #313131; }
+            #e{font-size: 0.8em;}
+            #aa{float: right;}
+        </style>
+    {% endblock %}
+{% block body %}
+    <div class="pos-f-t">
+        <div class="collapse" id="navbarToggleExternalContent">
+            <div class="bg-dark p-4">
+                <h4 class="text-white">OPCIONES</h4>
+                <span class="text-muted"><a href="{{ path('app_listar_comandaC') }}" aria-pressed="">Lista</a></span>&nbsp;&nbsp;&nbsp;
+                <span class="text-muted"><a href="{{ path('app_camarero') }}" aria-pressed="">Volver</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="text-muted"><a href="{{ path('app_inicio') }}" aria-pressed="" id="aa">Salir</a></span>
+            </div>
+        </div>
+        <nav class="navbar navbar-dark bg-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </nav>
+    </div>
+    <br>
+    <h2>CUENTA MESA{{ mesa.id }}</h2>
+    {% for comanda in comandas %}
+    <ul class="list-group">
+
+        <li class="list-group-item d-flex justify-content-between align-items-center" id="b">
+            PEDIDO
+            <span class="badge badge-primary badge-pill" id="c">{{ comanda.id }}</span>
+        </li>
+        {% for producto in comanda.productos %}
+            {% if producto.nombre != "Nada" %}
+                <li class="list-group-item d-flex justify-content-between align-items-center" id="e">
+                {{ producto.nombre }}
+                <span class="badge badge-primary badge-pill">€ {{ producto.precio }}</span>
+            </li>
+            {% endif %}
+        {% endfor %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+            TOTAL PEDIDO
+            <span class="badge badge-primary badge-pill">€ {{ comanda.precio }}</span>
+            </li>
+
+
+    {% endfor %}
+
+    <li class="list-group-item d-flex justify-content-between align-items-center" id="d">
+        TOTAL MESA{{ mesa.id }}
+        <span class="badge badge-primary badge-pill" id="a">€ {{ cuentatotal }}</span>
+    </li>
+    </ul>
+    <br>
+    <a href="{{ path('app_vaciar_mesa', {'numeromesa': mesa.numero}) }}" role="button" class="btn btn-dark btn-lg  btn-block">COBRAR</a>
+    <a href="{{ path('app_camarero') }}" role="button" class="btn btn-success btn-lg  btn-block">VOLVER</a>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block title %}Cocina | Productos{% endblock %}
+{% block stylesheets %}
+    <style>
+        h2{color: #ffa500; font-weight: bold; font-family: Ebrima; display: flex; justify-content: center;}
+        .jumbotron{background-image: url("/images/rapida.jpg"); background-repeat: no-repeat; background-size: 100% 100%; height: 55%; }
+    </style>
+{% endblock %}
+{% block body %}
+
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-sm-2 col-md-4">
+                <h1 class="display-4"></h1>
+            </div>
+        </div>
+    </div>
+    <a href="{{ path('app_producto_listar') }}" class="btn btn-dark btn-lg btn-block" role="button" aria-pressed="true">LISTAR</a><br>
+    <a href="{{ path('app_form_producto') }}" class="btn btn-dark btn-lg btn-block" role="button" aria-pressed="true">CREAR</a><br>
+    <a href="{{ path('app_cocina') }}" class="btn btn-success btn-lg btn-block" id="a" role="button" aria-pressed="true">VOLVER</a>
+{% endblock %}

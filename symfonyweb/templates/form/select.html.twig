@@ -1,0 +1,20 @@
+{%  extends 'base.html.twig' %}
+
+{% block title %}Selection{%  endblock %}
+
+{% block body %}
+<div>
+
+    <!--
+        Menú principal.
+     -->
+
+    <ul id="updateform">
+        <p><a href="{{ path('link_crear') }}">Crear producto</a></p>
+        <p><a href="{{ path('link_buscar') }}">Buscar producto</a></p>
+        <p><a href="{{ path('link_listar') }}">Listar productos</a></p>
+        <p><a href="{{ path('link_form') }}">Symfony Form</a></p>
+    </ul>
+</div>
+{% endblock %}
+

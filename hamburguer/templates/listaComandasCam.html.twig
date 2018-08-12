@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+{% block refresh %}
+    <meta http-equiv="refresh" content="10" >
+{% endblock %}
+{% block title %}Camarero | Lista Pedidos{% endblock %}
+{% block stylesheets %}
+    <style>
+        #s{font-weight: bold; color: #313131;}
+        #f{background-color: limegreen;}
+        #c{background-color: #313131;}
+        #b{font-weight: bold; color: whitesmoke; background-color: #999999;}
+        #e{font-family: Ebrima; font-size: 0.8em; }
+        h2{text-align: center; color: #ffa500; font-weight: bold; font-family: Ebrima;}
+        body{background-color:whitesmoke;}
+        a{color: #ffa500; font-family: Ebrima;}
+        h4{font-family: Ebrima;}
+        #aa{float: right;}
+    </style>
+{% endblock %}
+
+    {% block body %}
+
+        <div class="pos-f-t">
+            <div class="collapse" id="navbarToggleExternalContent">
+                <div class="bg-dark p-4">
+                    <h4 class="text-white">OPCIONES</h4>
+                    <span class="text-muted"><a href="{{ path('app_cocina') }}" aria-pressed="">Cocina</a></span>&nbsp;&nbsp;&nbsp;
+                    <span class="text-muted"><a href="{{ path('app_camarero') }}" aria-pressed="">Volver</a></span>
+                    <span class="text-muted"><a href="{{ path('app_inicio') }}" aria-pressed="" id="aa">Salir</a></span>
+
+                </div>
+            </div>
+            <nav class="navbar navbar-dark bg-dark">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </nav>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-8">
+        <br><h2>LISTA PEDIDOS</h2>
+
+
+            <br>
+            <ul class="list-group">
+                {% for comanda in comandas %}
+                <li class="list-group-item d-flex justify-content-between align-items-center" id="b">
+                    MESA {{ comanda.mesa.numero }}
+                    <span class="badge badge-primary badge-pill" id="c">{{ comanda.camarero.nombre }}</span>
+                </li>
+
+
+                    <li class="list-group-item d-flex justify-content-between align-items-center" id="e">
+                    {% for com in comanda.productos %}
+                        {% if com.nombre != "Nada" %}
+                            · {{ com }}
+                        {% endif %}
+                    {% endfor %}
+                    </li>
+
+                <li class="list-group-item d-flex justify-content-between align-items-center" id="s">
+                    ESTADO
+                    <span class="badge badge-primary badge-pill" id="f">{{ comanda.estado }} </span>
+                </li>
+
+                <li class="list-group-item d-flex justify-content-between align-items-center" id="d">
+                    <a href="{{ path('app_borra', {'id':comanda.id}) }}" class="btn btn-dark btn-sm  btn-block" role="button" aria-pressed="true">ELIMINAR</a>
+                </li>
+            </ul><hr>
+                {% endfor %}
+           <br>
+
+
+            <a href="{{ path('app_camarero') }}" role="button" class="btn btn-success btn-lg  btn-block">VOLVER</a>
+
+
+
+
+        </div>
+    {% endblock %}

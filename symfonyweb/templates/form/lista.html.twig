@@ -1,0 +1,21 @@
+{%  extends 'base.html.twig' %}
+
+{% block title %}Result{%  endblock %}
+
+{% block body %}
+
+    <!--
+        Listado de acciones que aparecerán al lado de cada producto.
+     -->
+
+    <ul id="updateform">
+        {% for i in product1 %}
+            <li><strong>ID:</strong> {{ i.id }} | <strong>Nombre:</strong> {{ i.name }} | <strong>Precio:</strong> {{ i.price }} | <strong>Descripción:</strong> {{ i.description }} {%  if is_granted('ROLE_USER') %} [ <a href="{{ path('link_update', { 'id': i.id, 'name': i.name, 'price': i.price, 'description': i.description}) }}">Actualizar con parámetros</a>
+                | <a href="{{ path('link_actualizar', { 'id': i.id }) }}">Actualizar con objeto</a> | <a href="{{ path('link_eliminar', { 'id': i.id }) }}">Eliminar</a> ]</li> {% endif %}
+        {% endfor %}
+
+        <!--   -->
+
+    </ul>
+
+{% endblock %}

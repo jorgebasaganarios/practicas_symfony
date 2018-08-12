@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+{% block title %}Camarero{% endblock %}
+{% block stylesheets %}
+        <style>
+            .jumbotron{height: 38%; background-image: url("/images/cam.png"); background-repeat: no-repeat; background-size: 100% 100%}
+            a{color: #ffa500; font-family: Ebrima;}
+            h2{color: #ffa500; font-weight: bold; font-family: Ebrima; display: flex; justify-content: center;}
+            h4{ font-family: Ebrima; font-size: 1.5em;}
+            #aa{float: right;}
+        </style>
+{% endblock %}
+{% block body %}
+    <div class="pos-f-t">
+        <div class="collapse" id="navbarToggleExternalContent">
+            <div class="bg-dark p-4">
+                <h4 class="text-white">OPCIONES</h4>
+                <span class="text-muted"><a href="{{ path('app_cocina') }}" aria-pressed="">Cocina</a></span>&nbsp;&nbsp;&nbsp;
+                <span class="text-muted"><a href="{{ path('app_inicio') }}" aria-pressed="" id="aa">Salir</a></span>
+            </div>
+        </div>
+        <nav class="navbar navbar-dark bg-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </nav>
+    </div>
+
+    <h2>CAMARERO</h2>
+    <div class="jumbotron">
+
+    </div>
+
+
+    <a href="{{ path('app_mesas') }}" class="btn btn-dark btn-lg btn-block" role="button" aria-pressed="true">CREAR PEDIDO</a><br>
+    <a href="{{ path('app_listar_comandaC') }}" class="btn btn-dark btn-lg btn-block" role="button" aria-pressed="true">LISTAR PEDIDOS</a><br>
+    <a href="{{ path('app_cuenta') }}" class="btn btn-success btn-lg btn-block" role="button" aria-pressed="true">CUENTA</a><br>
+
+{% endblock %}

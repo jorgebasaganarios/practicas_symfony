@@ -1,0 +1,21 @@
+{%  extends 'base.html.twig' %}
+
+{% block title %}Result{%  endblock %}
+
+{% block body %}
+
+    <!--
+        Listado de acciones que aparecerán al lado de cada producto.
+     -->
+
+    <ul id="updateform">
+        {% for i in article1 %}
+            <li><strong>ID:</strong> {{ i.id }} | <strong>Autor:</strong> {{ i.author }} | <strong>Título:</strong> {{ i.title }} | <strong>Contenido:</strong> {{ i.content }} {%  if is_granted('ROLE_USER') %} [ <a href="{{ path('article_update', { 'id': i.id, 'author': i.author, 'title': i.title, 'content': i.content}) }}">Actualizar con parámetros</a>
+                | <a href="{{ path('article_actualizar', { 'id': i.id }) }}">Actualizar con objeto</a> | <a href="{{ path('article_eliminar', { 'id': i.id }) }}">Eliminar</a> ]</li> {% endif %}
+        {% endfor %}
+
+        <!--   -->
+
+    </ul>
+
+{% endblock %}

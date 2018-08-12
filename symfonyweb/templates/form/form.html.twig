@@ -1,0 +1,19 @@
+{%  extends 'base.html.twig' %}
+
+{% block title %}Result{%  endblock %}
+
+{% block body %}
+
+    <!--
+
+    -->
+
+    <form id="updateform" action="{{ path(action) }}" method="post">
+        Escribe los valores:<br><br>
+        Nombre: <input type="text" name="nombre"/><br><br>
+        Precio: <input type="text" name="precio"/><br><br>
+        Descripción: <input type="text" name="desc"/><br><br>
+        <input type="submit" value="Crear" />
+    </form><br>
+
+{% endblock %}

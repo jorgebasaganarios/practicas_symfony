@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+{% block title %}Productos | Lista{% endblock %}
+{% block stylesheets %}
+    <style>
+        .thead{background-color: #CCCCCC; font-family: Ebrima;}
+        h2{text-align: center; font-family: Ebrima; font-weight: bold; color: #313131;}
+        #a{background-color: #ffa500; border: #ffa500; font-weight: bold; color: #313131;}
+        td{font-family: Ebrima; font-size: 0.9em;}
+    </style>
+{% endblock %}
+{% block body %}
+    <h2>LISTA DE PRODUCTOS</h2><br>
+   <div class="table -responsive">
+    <table class="table table-hover">
+    <thead class="thead">
+    <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">            </th>
+        <th scope="col">            </th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for producto in productos %}
+        <tr>
+        {% if producto.nombre != "Nada" %}
+            <th scope="row">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ producto.nombre}}</th>
+            <td>{{ producto.precio }}</td>
+            <td>{{ producto.tipo }}</td>
+            <td>{{ producto.descripcion }}</td>
+            <td><a href="{{ path('app_producto_actualizar', {'id': producto.id}) }}" class="btn btn-success btn-onblock" id="a" role="button" aria-pressed="true">ACTUALIZAR</a></td>
+            <td><a href="{{ path('app_producto_eliminar', {'id': producto.id}) }}" class="btn btn-success btn-onblock" id="a" role="button" aria-pressed="true">ELIMINAR</a></td>
+        {% endif %}
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+    </div>
+        <a href="{{ path('app_producto') }}" role="button" class="btn btn-success btn-lg  btn-block">VOLVER</a>
+{% endblock %}

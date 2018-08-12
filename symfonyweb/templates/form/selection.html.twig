@@ -1,0 +1,15 @@
+{%  extends 'base.html.twig' %}
+
+{% block title %}Selection{%  endblock %}
+
+{% block body %}
+
+    <ul>
+        {#<li><a href="/inicio.php?action=sum">Suma</a></li>#}
+        <p><a href="{{ path('link_sum') }}">Suma</a></p>
+        <p><a href="{{ path('link_subs') }}">Resta</a></p>
+        {#<p><a href="{{ path('link_mult') }}">Multiplica</a></p>#}
+        {#<p><a href="{{ path('link_div') }}">Divide</a></p>#}
+    </ul>
+
+{% endblock %}

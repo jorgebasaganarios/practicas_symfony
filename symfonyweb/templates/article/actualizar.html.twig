@@ -1,0 +1,22 @@
+{%  extends 'base.html.twig' %}
+
+{% block title %}Result{%  endblock %}
+
+{% block body %}
+
+    <!--
+     Formulario para actualización que recibe el objeto completo.
+     -->
+
+    <form id="updateform" action="{{ path(action) }}" method="post">
+        Escribe el id del registro a modificar:<br><br>
+        <input type="text" name="id" value="{{ article1.id }}"/><br><br>
+
+        Escribe el campo a modificar:<br><br>
+        Autor: <input type="text" name="author" value="{{ article1.author }}"/><br><br>
+        Título: <input type="text" name="title" value="{{ article1.title }}"/><br><br>
+        Artículo: <input type="text" name="content" value="{{ article1.content }}"/><br><br>
+        <input type="submit" value="Actualizar" />
+    </form>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{%  extends 'base.html.twig' %}
+
+{% block title %}Result{%  endblock %}
+
+{% block body %}
+
+    <div id="updateform">
+        {{form_start(form, {'action': path(action), 'method':'POST'})}}
+        {{form_end(form)}}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,164 @@
+#################Ejercicio Calculadora sencilla
+
+app_lucky_number:
+    path: /lucky/number
+    controller: App\Controller\LuckyController::number
+
+app_lucky_random:
+      path: /lucky/random
+      controller: App\Controller\RandomSumController::random
+
+app_lucky_selection:
+      path: /lucky/selection
+      controller: App\Controller\SumController::selection
+
+link_sum:
+      path: /lucky/result
+      controller: App\Controller\SumController::sumAction
+
+link_doSum:
+      path: /lucky/final
+      controller: App\Controller\SumController::doSumAction
+
+link_subs:
+      path: /lucky/result
+      controller: App\Controller\SumController::subsAction
+
+link_doSubs:
+      path: /lucky/final
+      controller: App\Controller\SumController::doSubsAction
+
+#################Ejercicio Gestión de base de datos
+
+app_selection:
+      path: /form/select
+      controller: App\Controller\ProductController::select
+
+link_crear:
+      path: /form/form
+      controller: App\Controller\ProductController::crear
+
+link_doCrear:
+      path: form/product
+      controller: App\Controller\ProductController::doCrear
+
+link_buscar:
+      path: /form/buscar
+      controller: App\Controller\ProductController::buscar
+
+link_doBuscar:
+      path: /buscar
+      controller: App\Controller\ProductController::doBuscar
+
+link_listar:
+      path: /form/list
+      controller: App\Controller\ProductController::listar
+
+link_doListar:
+      path: /search
+      controller: App\Controller\ProductController::doListar
+
+link_update:
+      path: /form/update/{id}/{name}/{price}/{description}
+      controller: App\Controller\ProductController::update
+
+link_doUpdate:
+      path: /update
+      controller: App\Controller\ProductController::doUpdate
+
+link_eliminar:
+      path: /remove
+      controller: App\Controller\ProductController::remove
+
+link_form:
+      path: /form/formsymf
+      controller: App\Controller\ProductController::form
+
+link_doForm:
+      path: /form/formulario
+      controller: App\Controller\ProductController::formDoAction
+
+link_actualizar:
+      path: /form/actualizar/{id}
+      controller: App\Controller\ProductController::actualizar
+
+#################Ejercicio Artículos
+
+app_article_selection:
+      path: /article/select
+      controller: App\Controller\ArticleController::select
+
+article_crear:
+      path: /article/form
+      controller: App\Controller\ArticleController::crear
+
+article_doCrear:
+      path: /article
+      controller: App\Controller\ArticleController::doCrear
+
+article_buscar:
+      path: /article/buscar
+      controller: App\Controller\ArticleController::buscar
+
+article_doBuscar:
+      path: /buscar
+      controller: App\Controller\ArticleController::doBuscar
+
+article_listar:
+      path: /article/list
+      controller: App\Controller\ArticleController::listar
+
+article_doListar:
+      path: /search
+      controller: App\Controller\ArticleController::doListar
+
+article_update:
+      path: /article/update/{id}/{author}/{title}/{content}
+      controller: App\Controller\ArticleController::update
+
+article_doUpdate:
+      path: /update
+      controller: App\Controller\ArticleController::doUpdate
+
+article_eliminar:
+      path: /remove
+      controller: App\Controller\ArticleController::remove
+
+article_form:
+      path: /article/formsymf
+      controller: App\Controller\ArticleController::form
+
+article_doForm:
+      path: /article/formulario
+      controller: App\Controller\ArticleController::formDoAction
+
+article_actualizar:
+      path: /article/actualizar/{id}
+      controller: App\Controller\ArticleController::actualizar
+
+#################Ejercicio Seguridad
+
+link_admin:
+      path: /admin
+      controller: App\Controller\DefaultController::admin
+
+login:
+    path: security/login
+    controller: App\Controller\SecurityController::loginAction
+
+app_check:
+    path: security/check
+    controller: App\Controller\SecurityController::loginCheckAction
+
+app_check_ok:
+    path: security/check
+    controller: App\Controller\SecurityController::loginCheckAction
+
+logout:
+    path: security/logout
+    controller: App\Controller\SecurityController::logoutAction
+
+app_registro:
+    path: security/register
+    controller: App\Controller\RegistrationController::registerAction
+

@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pedido | Nuevo{% endblock %}
+{% block stylesheets %}
+    <style>
+        .offset-sm-2{display: flex; justify-content: center; align-items: center;}
+        .col-form-label{color: #6E6E6E; font-weight: bold; font-family: Ebrima; display: flex; }
+        .form-control{  font-family: Ebrima;}
+        a{color: #ffa500; font-family: Ebrima;}
+        h4{font-family: Ebrima;}
+        #aa{float: right;}
+    </style>
+{% endblock %}
+
+{% block body %}
+
+
+    <form id="form1" method="post" action="{{ action }}" novalidate="novalidate">
+        <!-- form is based on User Entity -->
+        <!--{{ dump(form.vars.value) }} Para mostrar los datos de ese formulario. -->
+        <!-- http://stackoverflow.com/questions/12497133/directly-access-a-form-fields-value-when-overriding-widget-in-a-twig-template -->
+
+        <div class="pos-f-t">
+            <div class="collapse" id="navbarToggleExternalContent">
+                <div class="bg-dark p-4">
+                    <h4 class="text-white">OPCIONES</h4>
+                    <span class="text-muted"><a href="{{ path('app_listar_comandaC') }}" aria-pressed="">Lista</a></span>&nbsp;&nbsp;&nbsp;
+                    <span class="text-muted"><a href="{{ path('app_camarero') }}" aria-pressed="">Volver</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span class="text-muted"><a href="{{ path('app_inicio') }}" aria-pressed="" id="aa">Salir</a></span>
+                </div>
+            </div>
+            <nav class="navbar navbar-dark bg-dark">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </nav>
+        </div>
+
+        <div class="col-form-label">{{ form_label(form.camarero) }}</div><div> {{ form_widget(form.camarero, { 'attr': {'class': 'form-control'} }) }}</div>
+        <br>
+        <div class="col-form-label">{{ form_label(form.prod1) }}</div><div> {{ form_widget(form.prod1, { 'attr': {'class': 'form-control'} }) }}</div>
+        <br>
+        <div class="col-form-label">{{ form_label(form.prod2) }}</div><div>{{ form_widget(form.prod2, { 'attr': {'class': 'form-control'} }) }}</div>
+        <br>
+        <div class="col-form-label">{{ form_label(form.prod3) }}</div><div>{{ form_widget(form.prod3, { 'attr': {'class': 'form-control'} }) }}</div>
+        <br>
+        {{ form_widget(form.save, { 'attr': {'class': 'btn btn-dark btn-lg btn-block'} }) }}&nbsp; &nbsp; <a href="{{ path('app_camarero') }}" role="button" class="btn btn-success btn-lg btn-block">VOLVER</a>
+        <br>
+        <br>
+
+
+
+        <br>
+        <br>
+
+        </form>
+
+        {% endblock %}
+
